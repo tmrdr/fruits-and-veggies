@@ -9,18 +9,29 @@
         <script src="js/fruits_and_veggies_test.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body>
-        <div class="container">
+    <body ng-app="App">
+        <div class="container" style="text-align: center" ng-controller="appCtrl">
             <h1>Fruit and Veggies</h1>
             <div class="row">
                 <div class="col-sm-4">
-                    col 1
+                    <h3>Fruits</h3>
+                    <div class="well" ng-repeat="froot in froots">
+                      <h4 style="text-align: center">{{froot}}</h4>
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    col 2
+                    <h3>Pool</h3>
+                    <div class="well" ng-repeat="food in foods track by $index">
+                      <button class="btn btn-primary glyphicon glyphicon-chevron-left" style="text-align: center" ng-click="click('froots', 'foods', $index)"> </button>
+                      <h4 style="text-align: center">{{food}}</h4>
+                      <button class="btn btn-primary glyphicon glyphicon-chevron-right" style="text-align: center" ng-click="click('vegs', 'foods', $index)"></button>
+                      </div>
                 </div>
                 <div class="col-sm-4">
-                    col 3
+                    <h3>Vegetables</h3>
+                    <div class="well" ng-repeat="veg in vegs">
+                      <h4 style="text-align: center">{{veg}}</h4>
+                    </div>
                 </div>
             </div>
         </div>
